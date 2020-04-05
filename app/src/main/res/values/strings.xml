@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mallinicouture</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Главная</string>
+    <string name="title_favourite">Избраное</string>
+    <string name="title_shopping_basket">Корзина</string>
 </resources>
