@@ -1,4 +1,4 @@
-package io.mallinicouture.ui.home;
+package io.mallinicouture.ui.home.category;
 
 public class Category {
     private String title;

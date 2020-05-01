@@ -11,19 +11,35 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import io.mallinicouture.R;
 import io.mallinicouture.ui.gallery.GalleryActivity;
+import io.mallinicouture.ui.home.advertisement.AdvPagerAdapter;
+import io.mallinicouture.ui.home.advertisement.Advertisement;
+import io.mallinicouture.ui.home.category.Category;
+import io.mallinicouture.ui.home.category.CategoryRecyclerViewAdapter;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+
+    // Advertisements
+    private ViewPager mAdvertisementViewPager;
+    private AdvPagerAdapter mAdvPagerAdapter;
+    // Adv indicator
+    private TabLayout mIndicatorTabLayout;
+
+    // Categories
     private RecyclerView categoryRecyclerView;
     private CategoryRecyclerViewAdapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
@@ -40,10 +56,43 @@ public class HomeFragment extends Fragment {
         });
          */
 
+        initAdv(root);
+        initCategories(root);
+
+        // setupTimer
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new AdvTimer(), 4000, 6000);
+
+
+        return root;
+    }
+
+    private void initAdv(View root) {
+        mAdvertisementViewPager = root.findViewById(R.id.vp_home_advertisement);
+
+        List<Advertisement> advertisements = new ArrayList<>();
+
+        advertisements.add(new Advertisement(R.drawable.cat_mini, "New Dresses", "30+ Designer Brands"));
+        advertisements.add(new Advertisement(R.drawable.cat_mini, "New Dresses", "30+ Designer Brands"));
+        advertisements.add(new Advertisement(R.drawable.cat_mini, "New Dresses", "30+ Designer Brands"));
+        advertisements.add(new Advertisement(R.drawable.cat_mini, "New Dresses", "30+ Designer Brands"));
+
+        mAdvPagerAdapter = new AdvPagerAdapter(getContext(), advertisements);
+        mAdvertisementViewPager.setAdapter(mAdvPagerAdapter);
+
+        initIndicator(root);
+    }
+
+    private void initIndicator(View root) {
+        mIndicatorTabLayout = root.findViewById(R.id.tl_adv_indicator);
+        mIndicatorTabLayout.setupWithViewPager(mAdvertisementViewPager, true);
+    }
+
+    private void initCategories(View root) {
         categoryRecyclerView = (RecyclerView) root.findViewById(R.id.rv_categories);
         categoryRecyclerView.setHasFixedSize(true);
 
-        mLayoutManager = new LinearLayoutManager(root.getContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(root.getContext());
         categoryRecyclerView.setLayoutManager(mLayoutManager);
 
         List<Category> categories = new ArrayList<>();
@@ -62,7 +111,24 @@ public class HomeFragment extends Fragment {
         });
 
         categoryRecyclerView.setAdapter(mAdapter);
+    }
 
-        return root;
+    class AdvTimer extends TimerTask {
+
+        @Override
+        public void run() {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    int curr = mAdvertisementViewPager.getCurrentItem();
+
+                    if (curr < mAdvPagerAdapter.getCount()) {
+                        mAdvertisementViewPager.setCurrentItem(curr + 1);
+                    } else {
+                        mAdvertisementViewPager.setCurrentItem(0);
+                    }
+                }
+            });
+        }
     }
 }
