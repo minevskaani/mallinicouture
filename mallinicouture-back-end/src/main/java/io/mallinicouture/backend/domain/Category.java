@@ -1,11 +1,13 @@
 package io.mallinicouture.backend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name = "mc_category")
@@ -21,5 +23,12 @@ public class Category {
     @NotBlank(message = "Title should not be blank")
     private String title;
 
-    // TODO: private Image image;
+    @OneToOne
+    @JoinColumn(name = "mc_image_id", nullable = false)
+    private Image image;
+
+    @OneToMany(mappedBy = "category", cascade = { CascadeType.REMOVE })
+    @JsonIgnore
+    private List<Dress> dresses;
+
 }

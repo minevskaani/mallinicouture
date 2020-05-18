@@ -1,10 +1,13 @@
 package io.mallinicouture.backend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "mc_basket")
@@ -17,6 +20,23 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // TODO: private Set<OrderedDress> dresses;
+    @OneToOne( mappedBy = "basket" )
+    @JsonIgnore
+    private Client client;
+
+    @OneToMany(fetch = FetchType.EAGER,
+    //@OneToMany(fetch = FetchType.LAZY,
+            cascade = { CascadeType.ALL }
+    )
+    @JoinColumn(name = "mc_basket_id")
+    private List<OrderedDress> dresses = new ArrayList<>();
+
     private float totalPrice;
+
+    public void updateTotalPrice() {
+        totalPrice = (float)dresses
+                .stream()
+                .mapToDouble(od -> od.getQuantity() * od.getDress().getPrice())
+                .sum();
+    }
 }

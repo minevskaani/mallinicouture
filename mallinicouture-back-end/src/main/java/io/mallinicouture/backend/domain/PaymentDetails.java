@@ -1,9 +1,11 @@
 package io.mallinicouture.backend.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,14 +21,23 @@ public class PaymentDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // TODO: private Client client;
+    @ManyToOne
+    @JoinColumn(name = "mc_client_id", nullable = false)
+    @JsonIgnore
+    private Client client;
+
     private float price;
 
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date paymentDate;
 
-    // TODO: private CreditCard creditCard;
-    // TODO: order
+    @CreditCardNumber(ignoreNonDigitCharacters = true, message = "Not valid credit card number")
+    private String creditCard;
+
+    @OneToOne
+    @JoinColumn(name = "mc_order_id")
+    @JsonIgnore
+    private Order order;
 
     @PrePersist
     protected void onCreate() {

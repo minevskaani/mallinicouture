@@ -1,4 +1,4 @@
-package io.mallinicouture.backend.controller;
+package io.mallinicouture.backend.web;
 
 import io.mallinicouture.backend.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/api/image")
 public class ImageController {
 
     @Autowired

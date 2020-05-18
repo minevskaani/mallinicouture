@@ -11,8 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "mc_client")
@@ -37,14 +39,43 @@ public class Client implements UserDetails {
     private String lastName;
 
     @NotBlank(message = "Password field is required")
+    @JsonIgnore
     private String password;
 
     @Transient
+    @JsonIgnore
     private String confirmPassword;
 
+    // mappedBy means Client is the owning side of relationship
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = { CascadeType.PERSIST, CascadeType.REMOVE },
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "mc_credit_card_id")
+    @JsonIgnore
+    private CreditCard creditCard;
+
+    @OneToOne(fetch = FetchType.EAGER,
+            cascade = { CascadeType.PERSIST, CascadeType.REMOVE },
+            orphanRemoval = true,
+            optional = false
+    )
+    @JoinColumn(name = "mc_basket_id", nullable = false)
+    @JsonIgnore
+    private Basket basket = new Basket(); // basket is required
+
+    @OneToMany(mappedBy = "client",
+            fetch = FetchType.LAZY
+    )
+    @JsonIgnore
+    private List<Order> orders = new ArrayList<>();
+
     @JsonFormat(pattern = "yyyy-mm-dd")
+    @Column(updatable = false)
+    @JsonIgnore
     private Date createdAt;
     @JsonFormat(pattern = "yyyy-mm-dd")
+    @JsonIgnore
     private Date updatedAt;
 
     @PrePersist

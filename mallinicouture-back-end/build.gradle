@@ -25,6 +25,9 @@ repositories {
 dependencies {
     // Lombok
     def lombokVer = '1.18.12'
+    def jwtVer = '0.9.1'
+    def gsonVer = '2.8.6'
+
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly "org.projectlombok:lombok:$lombokVer"
     annotationProcessor "org.projectlombok:lombok:$lombokVer"
@@ -32,10 +35,16 @@ dependencies {
     testCompileOnly "org.projectlombok:lombok:$lombokVer"
     testAnnotationProcessor "org.projectlombok:lombok:$lombokVer"
 
+    // jwt
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: "$jwtVer"
+    // gson
+    compile group: 'com.google.code.gson', name: 'gson', version: "$gsonVer"
+
     // Spring
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.oracle.ojdbc:ojdbc8'
     runtimeOnly 'org.postgresql:postgresql'
