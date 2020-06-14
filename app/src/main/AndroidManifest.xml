@@ -4,16 +4,22 @@
     package="io.mallinicouture">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".BottomNavigationActivity"
+            android:name=".ui.login.activity.LoginActivity"
+            android:label="@string/title_activity_login">
+
+        </activity>
+        <activity
+            android:name=".ui.main.activity.MainActivity"
             android:label="@string/title_activity_bottom_navigation"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
@@ -23,12 +29,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.gallery.GalleryActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-
+        <activity
+            android:name=".ui.creditcard.activity.CreditCardActivity"
+            android:label="@string/add_credit_card_name"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>

@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="io.mallinicouture.ui.home.HomeFragment"
+        android:name="io.mallinicouture.ui.main.fragment.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_favourite"
-        android:name="io.mallinicouture.ui.favourite.FavouriteFragment"
+        android:name="io.mallinicouture.ui.main.fragment.favourite.FavouriteFragment"
         android:label="@string/title_favourite"
         tools:layout="@layout/fragment_favourite" />
 
