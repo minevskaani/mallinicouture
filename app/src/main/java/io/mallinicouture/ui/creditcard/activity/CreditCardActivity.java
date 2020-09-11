@@ -2,12 +2,15 @@ package io.mallinicouture.ui.creditcard.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
+
+import javax.inject.Inject;
 
 import io.mallinicouture.R;
 import io.mallinicouture.base.BaseActivity;
@@ -28,18 +31,20 @@ public class CreditCardActivity extends BaseActivity implements FragmentManager.
     private ActivityCreditCardBinding binding;
 
     @Getter
-    private CardFrontFragment cardFrontFragment;
+    @Inject CardFrontFragment cardFrontFragment;
     @Getter
-    private CardBackFragment cardBackFragment;
+    @Inject CardBackFragment cardBackFragment;
 
     @Getter
-    private CCNumberFragment numberFragment;
+    @Inject CCNumberFragment numberFragment;
     @Getter
-    private CCNameFragment nameFragment;
+    @Inject CCNameFragment nameFragment;
     @Getter
-    private CCValidityFragment validityFragment;
+    @Inject CCValidityFragment validityFragment;
     @Getter
-    private CCSecureCodeFragment secureCodeFragment;
+    @Inject CCSecureCodeFragment secureCodeFragment;
+
+    @Inject CCViewPagerAdapter adapter;
 
     private int itemN;
     private boolean backTrack = false;
@@ -49,12 +54,10 @@ public class CreditCardActivity extends BaseActivity implements FragmentManager.
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        // binding should be instantiated before dagger injection
         binding = ActivityCreditCardBinding.inflate(LayoutInflater.from(this));
+        super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
-
-        cardFrontFragment = new CardFrontFragment();
-        cardBackFragment = new CardBackFragment();
 
         if (savedInstanceState == null) {
             // Add fragment to 'frame_container' FrameLayout
@@ -67,38 +70,7 @@ public class CreditCardActivity extends BaseActivity implements FragmentManager.
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         // Initializing viewPager
-        binding.viewpager.setOffscreenPageLimit(4);
-        setupViewPager(binding.viewpager);
-
-        binding.viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == itemN) {
-                    binding.btnNext.setText(R.string.card_btn_submit_title);
-                } else {
-                    binding.btnNext.setText(R.string.card_btn_next_title);
-                }
-
-                if (position == itemN) {
-                    flipCard();
-                    backTrack = true;
-                } else if (position == itemN - 1 && backTrack) {
-                    flipCard();
-                    backTrack = false;
-                }
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        setupViewPager();
 
         binding.btnNext.setOnClickListener(view -> {
             int pos = binding.viewpager.getCurrentItem();
@@ -130,14 +102,8 @@ public class CreditCardActivity extends BaseActivity implements FragmentManager.
             Toast.makeText(this, "Your card is added", Toast.LENGTH_SHORT).show();
     }
 
-
-    private void setupViewPager(ViewPager2 vp) {
-        CCViewPagerAdapter adapter = new CCViewPagerAdapter(getSupportFragmentManager(), getLifecycle());
-
-        numberFragment     = new CCNumberFragment();
-        nameFragment       = new CCNameFragment();
-        validityFragment   = new CCValidityFragment();
-        secureCodeFragment = new CCSecureCodeFragment();
+    private void setupViewPager() {
+        binding.viewpager.setOffscreenPageLimit(4);
 
         adapter.addFragment(numberFragment);
         adapter.addFragment(nameFragment);
@@ -145,7 +111,36 @@ public class CreditCardActivity extends BaseActivity implements FragmentManager.
         adapter.addFragment(secureCodeFragment);
 
         itemN = adapter.getItemCount() - 1; // TODO refactor minus 1
-        vp.setAdapter(adapter);
+        binding.viewpager.setAdapter(adapter);
+
+        binding.viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == itemN) {
+                    binding.btnNext.setText(R.string.card_btn_submit_title);
+                } else {
+                    binding.btnNext.setText(R.string.card_btn_next_title);
+                }
+
+                if (position == itemN) {
+                    flipCard();
+                    backTrack = true;
+                } else if (position == itemN - 1 && backTrack) {
+                    flipCard();
+                    backTrack = false;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void flipCard() {

@@ -8,21 +8,31 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
+import javax.inject.Inject;
+
+import io.mallinicouture.base.BaseFragment;
 import io.mallinicouture.databinding.FragmentCcnumberBinding;
 import io.mallinicouture.ui.creditcard.activity.CreditCardActivity;
 import io.mallinicouture.ui.creditcard.utils.CreditCardFormattingTextWatcher;
+import io.mallinicouture.viewmodel.ViewModelFactory;
 
 import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
 
-public class CCNumberFragment extends Fragment {
+public class CCNumberFragment extends BaseFragment {
 
     FragmentCcnumberBinding binding;
 
     private CreditCardActivity activity;
     private CardFrontFragment cardFrontFragment;
     private TextView tvNumber;
+
+    @Inject
+    ViewModelFactory viewModelFactory;
+
+    @Inject
+    CCNumberFragment() {
+    }
 
     public String getCardNumber() {
         return binding.etNumber.toString().trim();

@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import javax.inject.Inject;
+
 import io.mallinicouture.R;
 import io.mallinicouture.databinding.FragmentCardFrontBinding;
 import io.mallinicouture.ui.creditcard.utils.FontTypeChange;
@@ -35,6 +37,10 @@ public class CardFrontFragment extends Fragment {
     private ImageView ivType;
 
     private FontTypeChange fontTypeChange;
+
+    @Inject
+    public CardFrontFragment() {
+    }
 
     @Nullable
     @Override

@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">Mallinicouture</string>
+
+    <!-- Bottom navigation -->
     <string name="title_activity_bottom_navigation">Mallinicouture</string>
-    <string name="title_home">Главная</string>
-    <string name="title_favourite">Избраное</string>
-    <string name="title_shopping_basket">Корзина</string>
+    <string name="title_navigation_home">Главная</string>
+    <string name="title_navigation_favourite">Избраное</string>
+    <string name="title_navigation_shopping_basket">Корзина</string>
+    <string name="title_navigation_settings">Настройки</string>
 
     <!-- Credit card -->
     <string name="add_credit_card_name">Добавить карту</string>

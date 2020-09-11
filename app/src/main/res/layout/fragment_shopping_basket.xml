@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.shoppingbasket.ShoppingBasketFragment">
+    tools:context=".ui.bottom_navigation.fragment.shoppingbasket.ShoppingBasketFragment">
 
     <TextView
         android:id="@+id/text_shopping_basket"

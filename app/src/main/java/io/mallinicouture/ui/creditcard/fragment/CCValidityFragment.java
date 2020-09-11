@@ -9,20 +9,29 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
-import io.mallinicouture.R;
+import javax.inject.Inject;
+
+import io.mallinicouture.base.BaseFragment;
 import io.mallinicouture.databinding.FragmentCcvalidityBinding;
 import io.mallinicouture.ui.creditcard.activity.CreditCardActivity;
 import io.mallinicouture.ui.creditcard.utils.CreditCardExpiryTextWatcher;
+import io.mallinicouture.viewmodel.ViewModelFactory;
 
-public class CCValidityFragment extends Fragment {
+public class CCValidityFragment extends BaseFragment {
 
     private FragmentCcvalidityBinding binding;
     private TextView tvValidity;
 
     private CreditCardActivity activity;
     private CardFrontFragment cardFrontFragment;
+
+    @Inject
+    CCValidityFragment() {
+    }
+
+    @Inject
+    ViewModelFactory viewModelFactory;
 
     public String getValidity() {
         return binding.etValidity.getText().toString().trim();

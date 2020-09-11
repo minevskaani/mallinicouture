@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel;
 
 import javax.inject.Inject;
 
-import io.mallinicouture.model.UserModel;
-import io.mallinicouture.repository.UserRepository;
+import io.mallinicouture.data.model.User;
+import io.mallinicouture.data.repository.UserRepository;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
@@ -16,27 +16,28 @@ public class UserViewModel extends ViewModel {
 
     private UserRepository userRepository;
     private CompositeDisposable disposable = new CompositeDisposable();
-    private MutableLiveData<UserModel> modelMutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<User> modelMutableLiveData = new MutableLiveData<>();
 
     @Inject
     public UserViewModel(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public MutableLiveData<UserModel> getModelMutableLiveData() {
+    public MutableLiveData<User> getModelMutableLiveData() {
         loadData();
 
         return modelMutableLiveData;
     }
 
     private void loadData() {
+        /*
         disposable.add(userRepository
                 .modelSingle()
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<UserModel>() {
+                .subscribeWith(new DisposableSingleObserver<User>() {
                     @Override
-                    public void onSuccess(UserModel value) {
+                    public void onSuccess(User value) {
                         getModelMutableLiveData().setValue(value);
                     }
 
@@ -46,6 +47,7 @@ public class UserViewModel extends ViewModel {
                     }
                 }
         ));
+         */
     }
 
     @Override

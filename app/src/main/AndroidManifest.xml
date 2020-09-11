@@ -7,6 +7,7 @@
 
     <application
         android:name=".base.BaseApplication"
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +20,7 @@
 
         </activity>
         <activity
-            android:name=".ui.main.activity.MainActivity"
+            android:name=".ui.bottom_navigation.activity.BottomNaviagionActivity"
             android:label="@string/title_activity_bottom_navigation"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
@@ -30,14 +31,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.gallery.GalleryActivity"
+            android:name=".ui.gallery.activity.GalleryActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.creditcard.activity.CreditCardActivity"
             android:label="@string/add_credit_card_name"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity" >
+        </activity>
     </application>
 
 </manifest>

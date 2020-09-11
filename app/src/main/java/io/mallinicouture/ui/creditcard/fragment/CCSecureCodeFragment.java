@@ -14,16 +14,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import javax.inject.Inject;
+
+import io.mallinicouture.base.BaseFragment;
 import io.mallinicouture.databinding.FragmentCcsecureCodeBinding;
 import io.mallinicouture.ui.creditcard.activity.CreditCardActivity;
+import io.mallinicouture.viewmodel.ViewModelFactory;
 
-public class CCSecureCodeFragment extends Fragment {
+public class CCSecureCodeFragment extends BaseFragment {
 
     private FragmentCcsecureCodeBinding binding;
 
     private TextView tvCvv;
 
     private CreditCardActivity activity;
+
+    @Inject
+    ViewModelFactory viewModelFactory;
+
+    @Inject
+    CCSecureCodeFragment() {
+    }
 
     public void setCvv(TextView tv) {
         this.tvCvv = tv;

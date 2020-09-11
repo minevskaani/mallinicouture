@@ -10,11 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import javax.inject.Inject;
+
+import io.mallinicouture.base.BaseFragment;
 import io.mallinicouture.databinding.FragmentCardBackBinding;
 import io.mallinicouture.ui.creditcard.activity.CreditCardActivity;
 import io.mallinicouture.ui.creditcard.utils.FontTypeChange;
 
-public class CardBackFragment extends Fragment {
+public class CardBackFragment extends BaseFragment {
 
     private FragmentCardBackBinding binding;
 
@@ -22,6 +25,12 @@ public class CardBackFragment extends Fragment {
 
     private CreditCardActivity activity;
     private CCSecureCodeFragment secureCodeFragment;
+
+    // It is not created by the system
+    @Inject
+    public CardBackFragment() {
+
+    }
 
     @Nullable
     @Override

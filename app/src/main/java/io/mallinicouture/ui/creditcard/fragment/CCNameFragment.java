@@ -12,13 +12,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+
+import javax.inject.Inject;
 
 import io.mallinicouture.R;
+import io.mallinicouture.base.BaseFragment;
 import io.mallinicouture.databinding.FragmentCcnameBinding;
 import io.mallinicouture.ui.creditcard.activity.CreditCardActivity;
+import io.mallinicouture.viewmodel.ViewModelFactory;
 
-public class CCNameFragment extends Fragment {
+public class CCNameFragment extends BaseFragment {
 
     FragmentCcnameBinding binding;
 
@@ -26,6 +29,13 @@ public class CCNameFragment extends Fragment {
 
     private CreditCardActivity activity;
     private CardFrontFragment cardFrontFragment;
+
+    @Inject
+    ViewModelFactory viewModelFactory;
+
+    @Inject
+    CCNameFragment() {
+    }
 
     public String getName() {
         return binding.etName.getText().toString().trim();

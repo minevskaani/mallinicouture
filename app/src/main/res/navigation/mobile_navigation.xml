@@ -7,19 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="io.mallinicouture.ui.main.fragment.home.HomeFragment"
-        android:label="@string/title_home"
+        android:name="io.mallinicouture.ui.bottom_navigation.fragment.home.HomeFragment"
+        android:label="@string/title_navigation_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_favourite"
-        android:name="io.mallinicouture.ui.main.fragment.favourite.FavouriteFragment"
-        android:label="@string/title_favourite"
+        android:name="io.mallinicouture.ui.bottom_navigation.fragment.favourite.FavouriteFragment"
+        android:label="@string/title_navigation_favourite"
         tools:layout="@layout/fragment_favourite" />
 
     <fragment
         android:id="@+id/navigation_shopping_basket"
-        android:name="io.mallinicouture.ui.shoppingbasket.ShoppingBasketFragment"
-        android:label="@string/title_shopping_basket"
+        android:name="io.mallinicouture.ui.bottom_navigation.fragment.shoppingbasket.ShoppingBasketFragment"
+        android:label="@string/title_navigation_shopping_basket"
         tools:layout="@layout/fragment_shopping_basket" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="io.mallinicouture.ui.bottom_navigation.fragment.settings.SettingsFragment"
+        android:label="@string/title_navigation_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

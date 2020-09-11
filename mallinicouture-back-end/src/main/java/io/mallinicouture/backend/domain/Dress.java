@@ -1,5 +1,6 @@
 package io.mallinicouture.backend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,6 +41,7 @@ public class Dress {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mc_category_id", nullable = false)
+    @JsonIgnore
     private Category category;
 
     public Dress(String title, Image mainImage, float price, DressSize... sizes) {

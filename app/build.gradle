@@ -1,17 +1,16 @@
 apply plugin: 'com.android.application'
 
-def dagger = '2.27'
-def retrofit = '2.9.0'
-def rxjava = "3.0.1"
-def rxandroid = "3.0.0"
-def lombok = "1.18.12"
+def dagger_ver    = '2.27'
+def retrofit_ver  = '2.9.0'
+def okhttp_logging_interceptor_ver = '4.7.2'
+def rxjava_ver    = "3.0.1"
+def rxandroid_ver = "3.0.0"
+def lombok_ver    = "1.18.12"
+def picasso_ver   = "2.71828"
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
-    // Fixes error with dagger - cannot find symbol
-    compileOptions.incremental = false
 
     defaultConfig {
         applicationId "io.mallinicouture"
@@ -46,27 +45,35 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
 
     // Lombok
-    compileOnly "org.projectlombok:lombok:$lombok"
-    annotationProcessor "org.projectlombok:lombok:$lombok"
+    compileOnly "org.projectlombok:lombok:$lombok_ver"
+    annotationProcessor "org.projectlombok:lombok:$lombok_ver"
 
     // Dagger
-    api "com.google.dagger:dagger:$dagger"
+    api "com.google.dagger:dagger:$dagger_ver"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_ver"
 
     // Provide classes in dagger.android
-    implementation "com.google.dagger:dagger-android:$dagger"
-    implementation "com.google.dagger:dagger-android-support:$dagger" // if you use the support libraries
-    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
+    implementation "com.google.dagger:dagger-android:$dagger_ver"
+    implementation "com.google.dagger:dagger-android-support:$dagger_ver" // if you use the support libraries
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_ver"
 
     // Retrofit
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_ver"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
+    // OkHttp interceptor which logs HTTP
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor_ver"
+    // RxJava3 adapter for retrofit
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+
 
     // RxJava
-    implementation "io.reactivex.rxjava3:rxandroid:$rxandroid"
-    implementation "io.reactivex.rxjava3:rxjava:$rxjava"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxandroid_ver"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava_ver"
+
+    // Picasso
+    implementation "com.squareup.picasso:picasso:$picasso_ver"
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

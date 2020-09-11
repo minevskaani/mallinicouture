@@ -70,7 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/api/dresses/**",
                         "/api/image/**",
-                        "/api/categories/**"
+                        "/api/categories/**",
+                        "/api/advertisement/**"
                 ).permitAll()
                 .anyRequest().authenticated();
 
