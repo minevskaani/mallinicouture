@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="io.mallinicouture.ui.creditcard.fragment.CCValidityFragment">
+    tools:context=".presentation.ui.creditcard.fragment.CCValidityFragment">
 
     <androidx.cardview.widget.CardView
         card_view:cardCornerRadius="1dp"
@@ -19,7 +19,7 @@
                 style="@style/CardLabel"
                 android:text="@string/card_validity"/>
 
-            <io.mallinicouture.ui.creditcard.utils.CreditCardEditText
+            <io.mallinicouture.presentation.ui.creditcard.utils.CreditCardEditText
                 style="@style/CardInput"
                 android:id="@+id/et_validity"
                 android:hint="Expiry Date"

@@ -7,9 +7,9 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
 import io.mallinicouture.di.util.ViewModelKey;
-import io.mallinicouture.ui.bottom_navigation.fragment.home.HomeViewModel;
-import io.mallinicouture.viewmodel.UserViewModel;
-import io.mallinicouture.viewmodel.ViewModelFactory;
+import io.mallinicouture.presentation.ui.bottom_navigation.fragment.home.HomeViewModel;
+import io.mallinicouture.presentation.viewmodel.UserViewModel;
+import io.mallinicouture.presentation.viewmodel.ViewModelFactory;
 
 @Module
 public abstract class ViewModelModule {

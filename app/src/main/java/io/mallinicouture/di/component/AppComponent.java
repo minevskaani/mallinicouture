@@ -9,7 +9,7 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import dagger.android.support.AndroidSupportInjectionModule;
-import io.mallinicouture.base.BaseApplication;
+import io.mallinicouture.presentation.base.BaseApplication;
 import io.mallinicouture.di.module.ActivityBindingModule;
 import io.mallinicouture.di.module.ContextModule;
 import io.mallinicouture.di.module.NetworkModule;
@@ -33,5 +33,4 @@ public interface AppComponent extends AndroidInjector<DaggerApplication> {
     @Component.Builder
     abstract class Builder extends AndroidInjector.Builder<BaseApplication> {}
      */
-
 }

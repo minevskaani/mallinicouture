@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="io.mallinicouture.ui.creditcard.fragment.CardFrontFragment">
+    tools:context=".presentation.ui.creditcard.fragment.CardFrontFragment">
 
     <RelativeLayout
         android:id="@+id/rl_card"

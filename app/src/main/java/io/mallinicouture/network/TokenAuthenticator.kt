@@ -4,12 +4,10 @@ import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.Route
-import retrofit2.http.Body
-import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.Exception
-
+/*
 @Singleton
 class TokenAuthenticator
 @Inject
@@ -48,3 +46,5 @@ constructor(private val tokenHolder: Lazy<TokenHolder>, private val tokenInterce
     }
 } {
 }
+
+ */

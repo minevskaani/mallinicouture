@@ -11,8 +11,8 @@ import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.mallinicouture.data.remote.AdvertisementService;
 import io.mallinicouture.data.remote.CategoryService;
 import io.mallinicouture.data.remote.UserService;
-import io.mallinicouture.network.TokenAuthenticator;
-import io.mallinicouture.network.TokenInterceptor;
+//import io.mallinicouture.network.TokenAuthenticator;
+//import io.mallinicouture.network.TokenInterceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -29,6 +29,7 @@ public abstract class NetworkModule {
         return new GsonBuilder().create();
     }
 
+    /*
     @Provides
     @Singleton
     static OkHttpClient provideOkHttpClient(TokenInterceptor tokenInterceptor,
@@ -42,6 +43,7 @@ public abstract class NetworkModule {
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
     }
+     */
 
     @Provides
     @Singleton

@@ -1,7 +1,7 @@
 package io.mallinicouture.data.remote;
 
 import io.mallinicouture.data.model.LoggedInUser;
-import io.mallinicouture.ui.creditcard.model.CreditCard;
+import io.mallinicouture.presentation.ui.creditcard.model.CreditCard;
 import io.mallinicouture.data.model.User;
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.POST;
