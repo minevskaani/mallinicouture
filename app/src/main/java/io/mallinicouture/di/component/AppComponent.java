@@ -18,9 +18,6 @@ import io.mallinicouture.di.module.NetworkModule;
 @Component(modules = {NetworkModule.class, ContextModule.class, AndroidSupportInjectionModule.class, ActivityBindingModule.class})
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
-    //* 1
-    void inject(BaseApplication application);
-
     @Component.Builder
     interface Builder {
         @BindsInstance
@@ -28,9 +25,4 @@ public interface AppComponent extends AndroidInjector<DaggerApplication> {
         AppComponent build();
     }
 
-    // */
-    /* 2
-    @Component.Builder
-    abstract class Builder extends AndroidInjector.Builder<BaseApplication> {}
-     */
 }

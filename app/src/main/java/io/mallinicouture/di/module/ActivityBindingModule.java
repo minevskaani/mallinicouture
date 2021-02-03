@@ -10,7 +10,6 @@ import io.mallinicouture.presentation.ui.bottom_navigation.di.MainFragmentBindin
 @Module
 public abstract class ActivityBindingModule {
 
-    // TODO: @ContributesAndroidInjector(modules = {MainFragmentBindingModule.class})
     @ContributesAndroidInjector(modules = {MainFragmentBindingModule.class})
     abstract BottomNaviagionActivity contributeMainActivity();
 

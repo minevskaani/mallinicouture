@@ -29,21 +29,19 @@ public abstract class NetworkModule {
         return new GsonBuilder().create();
     }
 
-    /*
     @Provides
     @Singleton
-    static OkHttpClient provideOkHttpClient(TokenInterceptor tokenInterceptor,
-                                            TokenAuthenticator tokenAuthenticator) {
+    static OkHttpClient provideOkHttpClient(/*TokenInterceptor tokenInterceptor,
+                                            TokenAuthenticator tokenAuthenticator*/) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         return new OkHttpClient()
                 .newBuilder()
-                .authenticator(tokenAuthenticator)
-                .addInterceptor(tokenInterceptor)
+                //.authenticator(tokenAuthenticator)
+                //.addInterceptor(tokenInterceptor)
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
     }
-     */
 
     @Provides
     @Singleton
