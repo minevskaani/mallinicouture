@@ -1,7 +1,6 @@
 package io.mallinicouture.backend.service;
 
 import io.mallinicouture.backend.domain.Client;
-import io.mallinicouture.backend.domain.CreditCard;
 import io.mallinicouture.backend.exception.UsernameAlreadyExistsException;
 import io.mallinicouture.backend.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;

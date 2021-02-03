@@ -38,9 +38,9 @@ public class OrderController {
     public ResponseEntity<?> makeOrder(
             Principal principal,
             @RequestParam(name = "address") String address,
-            @RequestParam(name = "payByCreditCard") boolean payByCrediCard
+            @RequestParam(name = "payByCreditCard") boolean payByCreditCard
     ) {
-        Order order = orderService.makeOrder(principal.getName(), address, payByCrediCard);
+        Order order = orderService.makeOrder(principal.getName(), address, payByCreditCard);
 
         return new ResponseEntity<>(order, HttpStatus.OK);
     }

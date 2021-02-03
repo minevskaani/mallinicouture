@@ -43,17 +43,7 @@ public class Client implements UserDetails {
     private String password;
 
     @Transient
-    @JsonIgnore
     private String confirmPassword;
-
-    // mappedBy means Client is the owning side of relationship
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = { CascadeType.PERSIST, CascadeType.REMOVE },
-            orphanRemoval = true
-    )
-    @JoinColumn(name = "mc_credit_card_id")
-    @JsonIgnore
-    private CreditCard creditCard;
 
     @OneToOne(fetch = FetchType.EAGER,
             cascade = { CascadeType.PERSIST, CascadeType.REMOVE },

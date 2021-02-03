@@ -20,9 +20,6 @@ public class Dress {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Title should not be blank")
-    private String title;
-
     private float price;
 
     @ElementCollection(targetClass = DressSize.class)
@@ -44,8 +41,7 @@ public class Dress {
     @JsonIgnore
     private Category category;
 
-    public Dress(String title, Image mainImage, float price, DressSize... sizes) {
-        this.title = title;
+    public Dress(Image mainImage, float price, DressSize... sizes) {
         this.mainImage = mainImage;
         this.availableSizes = new HashSet<>(sizes.length);
 

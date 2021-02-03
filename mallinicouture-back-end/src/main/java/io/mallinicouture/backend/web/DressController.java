@@ -3,15 +3,15 @@ package io.mallinicouture.backend.web;
 import io.mallinicouture.backend.domain.Category;
 import io.mallinicouture.backend.domain.Dress;
 import io.mallinicouture.backend.service.DressService;
+import io.mallinicouture.backend.service.MapValidationErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -20,6 +20,14 @@ public class DressController {
 
     @Autowired
     private DressService dressService;
+    @Autowired
+    private MapValidationErrorService mapValidationErrorService;
+
+    public ResponseEntity<?> saveDress(@RequestBody @Valid Dress dress, BindingResult dressBindingResult) {
+        if (dressBindingResult.hasErrors()) return mapValidationErrorService.doMapping(dressBindingResult);
+
+        return ResponseEntity.ok(dressService.saveDress())
+    }
 
     @GetMapping("")
     public ResponseEntity<?> getAllDresses(@RequestParam(name = "categoryId", required = false) Long catId) {

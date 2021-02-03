@@ -1,0 +1,367 @@
+[
+    {
+        "id": 1,
+        "price": 90099,
+        "mainImageId": 4,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S",
+            "М"
+        ]
+    },
+    {
+        "id": 2,
+        "price": 500909,
+        "mainImageId": 7,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "M"
+        ]
+    },
+    {
+        "id": 3,
+        "price": 200909,
+        "mainImageId": 8,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 4,
+        "price": 100909,
+        "mainImageId": 11,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 5,
+        "price": 100000,
+        "mainImageId": 14,
+        "categoryId": 1,
+        "dressSizes": [
+            "L",
+            "S"
+        ]
+    },
+    {
+        "id": 6,
+        "price": 120909,
+        "mainImageId": 16,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 7,
+        "price": 100909,
+        "mainImageId": 19,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 8,
+        "price": 200909,
+        "mainImageId": 21,
+        "categoryId": 1,
+        "dressSizes": [
+            "M",
+            "S"
+        ]
+    },
+    {
+        "id": 9,
+        "price": 500909,
+        "mainImageId": 22,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 10,
+        "price": 200909,
+        "mainImageId": 23,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 11,
+        "price": 180909,
+        "mainImageId": 26,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 12,
+        "price": 150909,
+        "mainImageId": 27,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 13,
+        "price": 144909,
+        "mainImageId": 30,
+        "categoryId": 1,
+        "dressSizes": [
+            "M",
+            "S"
+        ]
+    },
+    {
+        "id": 14,
+        "price": 194909,
+        "mainImageId": 31,
+        "categoryId": 1,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 15,
+        "price": 20000,
+        "mainImageId": 34,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 16,
+        "price": 194909,
+        "mainImageId": 36,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 17,
+        "price": 194909,
+        "mainImageId": 38,
+        "categoryId": 2,
+        "dressSizes": [
+            "L",
+            "M"
+        ]
+    },
+    {
+        "id": 18,
+        "price": 194909,
+        "mainImageId": 42,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 19,
+        "price": 400909,
+        "mainImageId": 44,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "M"
+        ]
+    },
+    {
+        "id": 20,
+        "price": 194909,
+        "mainImageId": 46,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 21,
+        "price": 394909,
+        "mainImageId": 47,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 22,
+        "price": 124909,
+        "mainImageId": 49,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 23,
+        "price": 100909,
+        "mainImageId": 51,
+        "categoryId": 2,
+        "dressSizes": [
+            "L",
+            "S"
+        ]
+    },
+    {
+        "id": 24,
+        "price": 194909,
+        "mainImageId": 54,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 25,
+        "price": 194909,
+        "mainImageId": 56,
+        "categoryId": 2,
+        "dressSizes": [
+            "M",
+            "S"
+        ]
+    },
+    {
+        "id": 26,
+        "price": 194909,
+        "mainImageId": 59,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 27,
+        "price": 194909,
+        "mainImageId": 61,
+        "categoryId": 2,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 28,
+        "price": 194903,
+        "mainImageId": 62,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 29,
+        "price": 194900,
+        "mainImageId": 64,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 30,
+        "price": 194009,
+        "mainImageId": 65,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "M"
+        ]
+    },
+    {
+        "id": 31,
+        "price": 154909,
+        "mainImageId": 68,
+        "categoryId": 3,
+        "dressSizes": [
+            "S",
+            "XL"
+        ]
+    },
+    {
+        "id": 32,
+        "price": 134909,
+        "mainImageId": 71,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "S"
+        ]
+    },
+    {
+        "id": 33,
+        "price": 184909,
+        "mainImageId": 72,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "M"
+        ]
+    },
+    {
+        "id": 34,
+        "price": 100909,
+        "mainImageId": 74,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "M"
+        ]
+    },
+    {
+        "id": 35,
+        "price": 194909,
+        "mainImageId": 76,
+        "categoryId": 3,
+        "dressSizes": [
+            "XS",
+            "L"
+        ]
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+]

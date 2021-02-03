@@ -36,9 +36,6 @@ public class Order {
     )
     private PaymentDetails paymentDetails;
 
-    private boolean isPayed;
-    private boolean isDelivered;
-
     @NotBlank(message = "Address is required")
     private String address;
 

@@ -3,7 +3,6 @@ package io.mallinicouture.backend.web;
 import io.mallinicouture.backend.web.payload.JWTLoginSucessResponse;
 import io.mallinicouture.backend.web.payload.LoginRequest;
 import io.mallinicouture.backend.domain.Client;
-import io.mallinicouture.backend.domain.CreditCard;
 import io.mallinicouture.backend.security.JwtTokenProvider;
 import io.mallinicouture.backend.service.MapValidationErrorService;
 import io.mallinicouture.backend.service.UserService;

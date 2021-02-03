@@ -22,7 +22,7 @@ public class DressService {
     @Autowired
     private ImageService imageService;
 
-    public Dress saveDress(Dress dress, Category category) {
+    public Dress saveDress(Dress dress) {
         dress.setCategory(category);
         /*
         // TODO: add dress already exists exception?
